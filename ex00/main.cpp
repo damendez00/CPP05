@@ -6,7 +6,7 @@
 /*   By: damendez <damendez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 17:38:24 by damendez          #+#    #+#             */
-/*   Updated: 2024/08/10 12:35:19 by damendez         ###   ########.fr       */
+/*   Updated: 2024/10/07 14:37:17 by damendez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,11 @@ void    decrementGradeTest(Bureaucrat& bureaucrat) {
 }
 
 int main() {
-    createObject("1", 20);
-    Bureaucrat a ("increase", 5);
+    createObject("1", -5);
+    Bureaucrat a ("Robert", 5);
     std::cout << a;
     incrementGradeTest(a);
     std::cout << a;
     decrementGradeTest(a);
+    std::cout << "After decreasing " << a.getName() << "'s grade, its now: " << a.getGrade() << std::endl;
 }
