@@ -6,7 +6,7 @@
 /*   By: damendez <damendez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 15:53:49 by damendez          #+#    #+#             */
-/*   Updated: 2024/09/17 16:06:24 by damendez         ###   ########.fr       */
+/*   Updated: 2024/10/07 14:55:01 by damendez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,8 @@ class Form
         const int           _gradeToSign;
         const int           _gradeToExecute;
 
-        Form();
-    
     public:
+        Form();
         Form( const std::string& name, int gradeToSign );
         Form( const std::string& name, int gradeToSign, int gradeToExecute );
         Form( const Form& src );
@@ -39,7 +38,7 @@ class Form
         int         getGradeToSign() const;
         int         getGradeToExecute() const;
 
-        // signs form if bureaucrats grade is high enogh
+        // signs form if bureaucrats grade is high enough
         void        beSigned( const Bureaucrat& bureaucrat );
 
         class GradeTooHighException : public std::exception {
