@@ -6,11 +6,15 @@
 /*   By: damendez <damendez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 17:38:24 by damendez          #+#    #+#             */
-/*   Updated: 2024/08/10 12:35:19 by damendez         ###   ########.fr       */
+/*   Updated: 2024/10/07 15:42:40 by damendez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
+
+#define EXIT_SUCCESS 0
+#define EXIT_FAILURE 1
 
 void    createObject(std::string name, int grade) {
     try {
@@ -37,11 +41,18 @@ void    decrementGradeTest(Bureaucrat& bureaucrat) {
     }
 }
 
-int main() {
-    createObject("1", 20);
-    Bureaucrat a ("increase", 5);
-    std::cout << a;
-    incrementGradeTest(a);
-    std::cout << a;
-    decrementGradeTest(a);
+int main( void )
+{
+    try {
+        Bureaucrat bureaucrat("Robert", 11);
+        // Form parameters are (name, gradeToSign, gradeToExecute)
+        Form form("formName", 10, 15);
+
+        bureaucrat.signForm(form);
+
+        std::cout << form << std::endl;
+    } catch (std::exception &e) {
+        std::cout << e.what() << std::endl;
+    }
+    return EXIT_SUCCESS;
 }

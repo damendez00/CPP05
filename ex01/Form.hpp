@@ -6,7 +6,7 @@
 /*   By: damendez <damendez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 15:53:49 by damendez          #+#    #+#             */
-/*   Updated: 2024/10/07 14:55:01 by damendez         ###   ########.fr       */
+/*   Updated: 2024/10/07 15:41:34 by damendez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,11 @@ class Form
 
     public:
         Form();
-        Form( const std::string& name, int gradeToSign );
-        Form( const std::string& name, int gradeToSign, int gradeToExecute );
         Form( const Form& src );
+        Form&   operator=(const Form& rhs);
         ~Form();
 
-        Form&   operator=(const Form& rhs);
+        Form( const std::string& name, int gradeToSign, int gradeToExecute );
         std::string getName() const;
         bool        getSigned() const;
         int         getGradeToSign() const;
@@ -50,5 +49,7 @@ class Form
                 virtual const char* what() const throw() { return "Grade too low"; }
         };
 };
+
+std::ostream&   operator<<(std::ostream& out, Form& rhs);
 
 #endif

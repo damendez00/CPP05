@@ -6,15 +6,15 @@
 #    By: damendez <damendez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/09 17:38:26 by damendez          #+#    #+#              #
-#    Updated: 2024/08/09 17:40:21 by damendez         ###   ########.fr        #
+#    Updated: 2024/10/07 15:44:16 by damendez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= Bureaucrat
 
-SRC_FILES	= Bureaucrat.cpp main.cpp 
+SRC_FILES	= Bureaucrat.cpp Form.cpp main.cpp 
 
-HEADER		= Bureaucrat.hpp
+HEADER		= Bureaucrat.hpp Form.hpp
 
 OBJ_DIR		= obj/
 OBJ_FILES	= $(SRC_FILES:.cpp=.o)
