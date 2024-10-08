@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
-
-#define EXIT_SUCCESS 0
-#define EXIT_FAILURE 1
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 void    formExecuteTest(Bureaucrat& bureaucrat) {
     try {
@@ -114,5 +114,5 @@ int main( void )
     } catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << std::endl;
     }
-    return EXIT_SUCCESS;
+    return 0;
 }
