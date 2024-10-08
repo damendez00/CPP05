@@ -6,15 +6,13 @@
 /*   By: damendez <damendez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 17:38:19 by damendez          #+#    #+#             */
-/*   Updated: 2024/10/07 15:40:52 by damendez         ###   ########.fr       */
+/*   Updated: 2024/10/08 14:12:11 by damendez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(): _name("undefined"), _grade(150) {
-    std::cout << "Default constructor called" << std::endl;
-}
+Bureaucrat::Bureaucrat(): _name("undefined"), _grade(150) {}
 
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name), _grade(grade) {
     if (this->_grade < 1)
@@ -66,6 +64,15 @@ void    Bureaucrat::signForm(Form& form) {
         std::cout << this->_name << " signs " << form.getName() << std::endl;
     } catch (std::exception &e) {
         std::cout << this->_name << " cannot sign " << form.getName() << " because " << e.what() << std::endl;
+    }
+}
+
+void    Bureaucrat::executeForm(Form& form) {
+    try {
+        form.beExecuted(*this);
+        std::cout << this->_name << " executes " << form.getName() << std::endl;
+    } catch (std::exception &e) {
+        std::cout << this->_name << " cannot execute " << form.getName() << " because " << e.what() << std::endl;
     }
 }
 

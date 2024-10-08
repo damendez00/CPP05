@@ -6,7 +6,7 @@
 /*   By: damendez <damendez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 17:38:21 by damendez          #+#    #+#             */
-/*   Updated: 2024/10/07 15:44:58 by damendez         ###   ########.fr       */
+/*   Updated: 2024/10/08 14:10:41 by damendez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ class Bureaucrat
         void        incrementGrade(void);
         void        decrementGrade(void);
         void        signForm(Form& form);
+        void        executeForm(Form& form);
 
         class GradeTooHighException : public std::exception {
             public:
