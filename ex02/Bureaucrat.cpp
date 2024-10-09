@@ -6,7 +6,7 @@
 /*   By: damendez <damendez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 17:38:19 by damendez          #+#    #+#             */
-/*   Updated: 2024/10/08 14:12:11 by damendez         ###   ########.fr       */
+/*   Updated: 2024/10/08 17:50:13 by damendez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,18 +58,18 @@ void    Bureaucrat::decrementGrade(void) {
         throw GradeTooLowException();
 }
 
-void    Bureaucrat::signForm(Form& form) {
+void    Bureaucrat::signForm(AForm const & aform) {
     try {
-        form.beSigned(*this);
-        std::cout << this->_name << " signs " << form.getName() << std::endl;
+        aform.beSigned(*this);
+        std::cout << this->_name << " signs " << aform.getName() << std::endl;
     } catch (std::exception &e) {
         std::cout << this->_name << " cannot sign " << form.getName() << " because " << e.what() << std::endl;
     }
 }
 
-void    Bureaucrat::executeForm(Form& form) {
+void    Bureaucrat::executeForm(AForm const & form) {
     try {
-        form.beExecuted(*this);
+        form.execute(*this);
         std::cout << this->_name << " executes " << form.getName() << std::endl;
     } catch (std::exception &e) {
         std::cout << this->_name << " cannot execute " << form.getName() << " because " << e.what() << std::endl;
