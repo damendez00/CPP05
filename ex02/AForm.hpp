@@ -6,7 +6,7 @@
 /*   By: damendez <damendez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 18:11:20 by damendez          #+#    #+#             */
-/*   Updated: 2024/10/09 16:44:37 by damendez         ###   ########.fr       */
+/*   Updated: 2024/10/09 17:43:12 by damendez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ public:
     int                 getGradeToExecute() const;
 
     // Virtual methods
-    virtual void        execute(const Bureaucrat& executor) const = 0; // Pure virtual method
+    virtual void        execute(Bureaucrat const & executor) const = 0; // Pure virtual method
     void                beSigned(const Bureaucrat& bureaucrat);
 
     // Custom exceptions for invalid grades
@@ -54,6 +54,11 @@ public:
     class GradeTooLowException : public std::exception {
         const char* what() const throw() {
             return "AForm grade is too low!";
+        }
+    };
+    class FormNotSignedException : public std::exception {
+        const char* what() const throw() {
+            return "AForm is not signed!";
         }
     };
 

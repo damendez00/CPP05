@@ -6,15 +6,15 @@
 #    By: damendez <damendez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/09 17:38:26 by damendez          #+#    #+#              #
-#    Updated: 2024/10/08 12:31:14 by damendez         ###   ########.fr        #
+#    Updated: 2024/10/09 17:34:55 by damendez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= Forms
 
-SRC_FILES	= Bureaucrat.cpp Form.cpp main.cpp 
+SRC_FILES	= main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
 
-HEADER		= Bureaucrat.hpp Form.hpp
+HEADER		= Bureaucrat.hpp AForm.hpp PresidentialPardonForm.hpp RobotomyRequestForm.hpp ShrubberyCreationForm.hpp
 
 OBJ_DIR		= obj/
 OBJ_FILES	= $(SRC_FILES:.cpp=.o)

@@ -6,7 +6,7 @@
 /*   By: damendez <damendez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 18:06:06 by damendez          #+#    #+#             */
-/*   Updated: 2024/10/08 18:06:06 by damendez         ###   ########.fr       */
+/*   Updated: 2024/10/09 17:06:33 by damendez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=( ShrubberyCreationForm& 
 }
 
 void    ShrubberyCreationForm::execute( const Bureaucrat& executor ) const {
-    if ( this->getSigned() == false )
-        throw AForm::NotSignedException();
+    if ( this->isSigned() == false )
+        throw AForm::FormNotSignedException();
     else if ( executor.getGrade() > this->getGradeToExecute() ) {
         throw AForm::GradeTooLowException();
     }
