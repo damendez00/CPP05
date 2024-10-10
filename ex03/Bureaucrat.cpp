@@ -6,11 +6,12 @@
 /*   By: damendez <damendez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 17:38:19 by damendez          #+#    #+#             */
-/*   Updated: 2024/10/10 13:34:53 by damendez         ###   ########.fr       */
+/*   Updated: 2024/10/09 17:33:35 by damendez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(150) {}
 
@@ -53,6 +54,27 @@ void Bureaucrat::decrementGrade() {
         _grade++;
     else
         throw GradeTooLowException();
+}
+
+void Bureaucrat::signForm(AForm& form) const {
+    try {
+        
+        form.beSigned(*this);
+        std::cout << _name << " executed " << form.getName() << std::endl;
+    }
+    catch (const std::exception& e) {
+        std::cout << _name << " couldn't execute " << form.getName() << " because " << e.what() << std::endl;
+    }
+}
+
+void Bureaucrat::executeForm(AForm const & form) {
+    try {
+        form.execute(*this);
+        std::cout << _name << " executed " << form.getName() << std::endl;
+    }
+    catch (const std::exception& e) {
+        std::cout << _name << " couldn't execute " << form.getName() << " because " << e.what() << std::endl;
+    }
 }
 
 // Overload of the insertion operator for Bureaucrat

@@ -6,7 +6,7 @@
 /*   By: damendez <damendez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 17:38:24 by damendez          #+#    #+#             */
-/*   Updated: 2024/10/09 14:59:05 by damendez         ###   ########.fr       */
+/*   Updated: 2024/10/10 13:45:20 by damendez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int main() {
         Bureaucrat b1("Alice", 2);
         Bureaucrat b2("Bob", 150);
         Bureaucrat b3 = b1; // Testing the copy constructor
+        b3 = b2;
         //Bureaucrat b4("Jhon", -2);
 
         std::cout << b1 << std::endl;
