@@ -6,7 +6,7 @@
 /*   By: damendez <damendez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 18:05:59 by damendez          #+#    #+#             */
-/*   Updated: 2024/10/09 17:08:52 by damendez         ###   ########.fr       */
+/*   Updated: 2024/10/18 20:05:45 by damendez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ RobotomyRequestForm&    RobotomyRequestForm::operator=( RobotomyRequestForm& rhs
     return *this;
 }
 
-void    RobotomyRequestForm::execute(Bureaucrat const & executor) const {
+void    RobotomyRequestForm::execute(const Bureaucrat& executor) const {
     if ( this->isSigned() == false )
         throw AForm::FormNotSignedException();
     else if ( executor.getGrade() > this->getGradeToExecute() )

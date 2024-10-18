@@ -6,7 +6,7 @@
 /*   By: damendez <damendez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 18:11:20 by damendez          #+#    #+#             */
-/*   Updated: 2024/10/09 17:43:12 by damendez         ###   ########.fr       */
+/*   Updated: 2024/10/18 20:05:01 by damendez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <string>
+
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
@@ -28,24 +29,20 @@ private:
     const int           _gradeToExecute;
 
 public:
-    // Constructor and destructor
     AForm();
     AForm(const std::string& name, int gradeToSign, int gradeToExecute);
     AForm(const AForm& other);
     AForm& operator=(const AForm& other);
-    virtual ~AForm();                    // Virtual destructor
+    virtual ~AForm();
 
-    // Getters
     const std::string&  getName() const;
     bool                isSigned() const;
     int                 getGradeToSign() const;
     int                 getGradeToExecute() const;
 
-    // Virtual methods
-    virtual void        execute(Bureaucrat const & executor) const = 0; // Pure virtual method
+    virtual void        execute(const Bureaucrat& executor) const = 0;
     void                beSigned(const Bureaucrat& bureaucrat);
 
-    // Custom exceptions for invalid grades
     class GradeTooHighException : public std::exception {
         const char* what() const throw() {
             return "AForm grade is too high!";
@@ -61,9 +58,8 @@ public:
             return "AForm is not signed!";
         }
     };
-
-    // Output stream operator overload
-    friend std::ostream& operator<<(std::ostream& os, const AForm& form);
 };
+
+std::ostream& operator<<(std::ostream& os, const AForm& form);
 
 #endif

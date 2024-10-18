@@ -6,7 +6,7 @@
 /*   By: damendez <damendez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 18:05:49 by damendez          #+#    #+#             */
-/*   Updated: 2024/10/09 17:07:13 by damendez         ###   ########.fr       */
+/*   Updated: 2024/10/18 20:05:20 by damendez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
     return *this;
 }
 
-void    PresidentialPardonForm::execute(Bureaucrat const & executor) const {
+void    PresidentialPardonForm::execute(const Bureaucrat& executor) const {
     if ( this->isSigned() == false )
         throw AForm::FormNotSignedException();
     else if ( executor.getGrade() > this->getGradeToExecute() )

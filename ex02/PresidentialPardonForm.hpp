@@ -6,7 +6,7 @@
 /*   By: damendez <damendez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 18:05:55 by damendez          #+#    #+#             */
-/*   Updated: 2024/10/08 18:05:55 by damendez         ###   ########.fr       */
+/*   Updated: 2024/10/18 20:05:26 by damendez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
     PresidentialPardonForm& operator=( const PresidentialPardonForm& rhs );
     ~PresidentialPardonForm();
     
-    void    execute(Bureaucrat const & executor) const;
+    void    execute(const Bureaucrat& executor) const;
 };
 
 #endif
