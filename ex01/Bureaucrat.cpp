@@ -6,12 +6,11 @@
 /*   By: damendez <damendez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 17:38:19 by damendez          #+#    #+#             */
-/*   Updated: 2024/10/09 16:21:24 by damendez         ###   ########.fr       */
+/*   Updated: 2024/10/18 17:22:24 by damendez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
 
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(150) {}
 
@@ -59,14 +58,13 @@ void Bureaucrat::decrementGrade() {
 void Bureaucrat::signForm(Form& form) const {
     try {
         form.beSigned(*this);
-        std::cout << _name << " executed " << form.getName() << std::endl;
+        std::cout << _name << " signed " << form.getName() << std::endl;
     }
     catch (const std::exception& e) {
-        std::cout << _name << " couldn't execute " << form.getName() << " because " << e.what() << std::endl;
+        std::cout << _name << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
     }
 }
 
-// Overload of the insertion operator for Bureaucrat
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b) {
     os << b.getName() << ", bureaucrat grade: " << b.getGrade() << ".";
     return os;

@@ -6,12 +6,11 @@
 /*   By: damendez <damendez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 15:53:53 by damendez          #+#    #+#             */
-/*   Updated: 2024/10/09 16:16:38 by damendez         ###   ########.fr       */
+/*   Updated: 2024/10/18 17:20:33 by damendez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
-#include "Bureaucrat.hpp"
 
 Form::Form() : _name("Default"), _isSigned(false), _gradeToSign(150), _gradeToExecute(150) {}
 
@@ -52,7 +51,6 @@ int Form::getGradeToExecute() const {
     return _gradeToExecute;
 }
 
-// Method to sign the form if the bureaucrat's grade is sufficient
 void Form::beSigned (const Bureaucrat& bureaucrat) {
     if (bureaucrat.getGrade() > _gradeToSign)
         throw GradeTooLowException();
@@ -62,7 +60,6 @@ void Form::beSigned (const Bureaucrat& bureaucrat) {
         std::cout << "Form " << _name << " is already signed." << std::endl;
 }
 
-// Overload of the insertion operator for Form
 std::ostream& operator<<(std::ostream& os, const Form& form) {
     os << form.getName() << ", signed: " << (form.isSigned() ? "yes" : "no")
        << ", grade required to sign: " << form.getGradeToSign()
