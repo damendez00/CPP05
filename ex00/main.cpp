@@ -6,7 +6,7 @@
 /*   By: damendez <damendez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 17:38:24 by damendez          #+#    #+#             */
-/*   Updated: 2024/10/10 13:45:20 by damendez         ###   ########.fr       */
+/*   Updated: 2024/10/18 17:12:24 by damendez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,19 @@ int main() {
     try {
         Bureaucrat b1("Alice", 2);
         Bureaucrat b2("Bob", 150);
-        Bureaucrat b3 = b1; // Testing the copy constructor
-        b3 = b2;
-        //Bureaucrat b4("Jhon", -2);
+
+        std::cout << "Overload operator tests:" << std::endl;
 
         std::cout << b1 << std::endl;
         std::cout << b2 << std::endl;
-        std::cout << "Copy of b1 (b3): " << b3 << std::endl; //?
 
-        // Test increment and decrement
+        std::cout << std::endl << "Increment/decrement handling tests:" << std::endl;
+        
         b1.incrementGrade();
         std::cout << "After increment: " << b1 << std::endl;
+
+        //b1.incrementGrade();
+        //std::cout << "After increment: " << b1 << std::endl;
 
         b2.decrementGrade(); // This should throw an exception
         std::cout << "After decrement: " << b2 << std::endl;
